@@ -15,8 +15,8 @@ window.addEventListener("load", () => {
   let r, theta;
   function drawCard() {
     if (card > 75) return clearInterval(int);
-    color.l += 0.7;
-    r = card*2;
+    color.l += 0.8;
+    r = card*5;
     // r = Math.pow(card,1.5);//card*11;
     theta = card * angle;
     // let dia = (0.1*card)+0.25;
@@ -27,7 +27,7 @@ window.addEventListener("load", () => {
     console.log({card,x,y});
 
     const text = `<!DOCTYPE html><html> <head> <title>${card+1}</title> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"><style>body{margin:0 auto;text-align:center;color: #f9faffde;
-      text-shadow: #858ebc -2px 2px 8px;width:100vw;height:100vh;background-color:hsl(${color.h}deg ${color.s}% ${color.l}%);}</style><h1>${card+1}</h1></body></html>`;
+      text-shadow: #858ebc -2px 2px 8px;width:100vw;height:100vh;background-color:hsl(${color.h}deg ${color.s}% ${color.l}%);}</style><h1></h1><script>setInterval(()=>document.body.style.backgroundColor='hsl(${color.h}deg ${color.s}% ${color.l+=0.5}%)',100)</script></body></html>`;
     const blob = new Blob([text], {type: "text/html"});
     const blobUrl = URL.createObjectURL(blob);
     window.open(blobUrl, '_blank', `popup,location,status,scrollbars,resizable,width=100,height=100,top=${y},left=${x}`);
